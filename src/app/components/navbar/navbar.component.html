@@ -4,13 +4,13 @@
       </button>
       <span>Exam Portal</span>
       <span class="example-spacer"></span>
-      <button mat-raised-button color="accent">Sign Up</button>
+      <button mat-raised-button color="accent" routerLink="registration">Sign Up</button>
       <button mat-button [matMenuTriggerFor]="myProfileMenu">
         <mat-icon class="mat-icon-profile" >account_circle</mat-icon>
       </button>
       <mat-menu #myProfileMenu>
-        <button mat-menu-item><mat-icon>dashboard</mat-icon>Dashboard</button>
-        <button mat-menu-item><mat-icon>edit</mat-icon>Profile</button>
+        <button mat-menu-item ><mat-icon>dashboard</mat-icon>Dashboard</button>
+        <button mat-menu-item routerLink="profile"><mat-icon>edit</mat-icon>Profile</button>
         <button mat-menu-item><mat-icon>exit_to_app</mat-icon>Signout</button>
       </mat-menu>
 </mat-toolbar>
@@ -23,7 +23,7 @@
               <button mat-button><mat-icon>dashboard</mat-icon>Dashboard</button>
           </mat-list-item>
           <mat-list-item>
-              <button mat-button><mat-icon>home</mat-icon>Home</button>
+              <button mat-button routerLink=""><mat-icon>home</mat-icon>Home</button>
           </mat-list-item>
           <mat-list-item>
               <button mat-button><mat-icon>settings</mat-icon>Setting</button>
