@@ -59,7 +59,7 @@ export class TableComponent {
   }
 
   private refreshTable(email: string) {
-    this.dataSource.data = this.dataSource.data.filter(user => user.email !== email);
+    this.dataSource.data = this.dataSource.data.filter(user => user.email != email);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
