@@ -13,23 +13,22 @@ import { PopupComponent } from '../popup/popup.component';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent {
-  userList!:User[];
-  dataSource:any;
-  displayedColumn:string[]=["id", "firstName", "lastName", "email", "dob", "gender", "designation","action"]
-  @ViewChild(MatPaginator) paginatior !: MatPaginator;
-  @ViewChild(MatSort) sort !: MatSort;
+  userList!: User[];
+  dataSource: MatTableDataSource<User>;
+  displayedColumn: string[] = ["id", "firstName", "lastName", "email", "dob", "gender", "designation", "action"];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-
-  
-  constructor(private service:ApiService, private dialog: MatDialog){
+  constructor(private service: ApiService, private dialog: MatDialog) {
+    this.dataSource = new MatTableDataSource<User>();
     this.loadUser();
   }
 
   loadUser() {
     this.service.getAllData().subscribe(user => {
       this.userList = user;
-      this.dataSource = new MatTableDataSource<User>(this.userList);
-      this.dataSource.paginator = this.paginatior;
+      this.dataSource.data = this.userList;
+      this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
@@ -39,24 +38,29 @@ export class TableComponent {
     this.dataSource.filter = value;
   }
 
-  Openpopup(code: any, title: any,component:any) {
-    var _popup = this.dialog.open(component, {
-      width: '40%',
-      enterAnimationDuration: '1000ms',
-      exitAnimationDuration: '1000ms',
-      data: {
-        title: title,
-        code: code
-      }
-    });
-    _popup.afterClosed().subscribe(item => {
-      // console.log(item)
-      this.loadUser();
-    })
+  editUser(email: string) {
+    console.log("Edit button Clicked")
   }
 
-  addUser(){
-    this.Openpopup(0, 'Add Customer',PopupComponent);
+  deleteUser(email: string) {
+    if (confirm("Are you sure you want to delete this user?")) {
+      this.service.deleteUser(email).subscribe({
+        next: () => {
+          // Delete successful, refresh the table
+          this.refreshTable(email);
+          console.log("User deleted successfully.");
+        },
+        error: (error) => {
+          console.error("Error deleting user:", error);
+          // Handle error, show error message, etc.
+        }
+      });
+    }
   }
 
+  private refreshTable(email: string) {
+    this.dataSource.data = this.dataSource.data.filter(user => user.email !== email);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
 }
