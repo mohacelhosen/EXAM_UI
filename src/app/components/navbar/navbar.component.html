@@ -9,7 +9,7 @@
         <mat-icon class="mat-icon-profile" >account_circle</mat-icon>
       </button>
       <mat-menu #myProfileMenu>
-        <button mat-menu-item ><mat-icon>dashboard</mat-icon>Dashboard</button>
+        <button mat-menu-item routerLink="dashboard"><mat-icon>dashboard</mat-icon>Dashboard</button>
         <button mat-menu-item routerLink="profile"><mat-icon>edit</mat-icon>Profile</button>
         <button mat-menu-item><mat-icon>exit_to_app</mat-icon>Signout</button>
       </mat-menu>
@@ -20,19 +20,19 @@
   <mat-drawer #myDrawer opened="false" mode="push">
       <mat-nav-list>
           <mat-list-item>
-              <button mat-button><mat-icon>dashboard</mat-icon>Dashboard</button>
+              <button mat-button routerLink="dashboard"><mat-icon>dashboard</mat-icon>Dashboard</button>
           </mat-list-item>
           <mat-list-item>
               <button mat-button routerLink=""><mat-icon>home</mat-icon>Home</button>
           </mat-list-item>
           <mat-list-item>
-              <button mat-button><mat-icon>settings</mat-icon>Setting</button>
+              <button mat-button routerLink="profile"><mat-icon>settings</mat-icon>Setting</button>
           </mat-list-item>
           <mat-list-item>
-              <button mat-button><mat-icon>help</mat-icon>Help</button>
+              <button mat-button routerLink="qa"><mat-icon>help</mat-icon>Help</button>
           </mat-list-item>
           <mat-list-item>
-              <button mat-button><mat-icon>analytics</mat-icon>Analytics</button>
+              <button mat-button routerLink="users"><mat-icon>analytics</mat-icon>Analytics</button>
           </mat-list-item>
       </mat-nav-list>
   </mat-drawer>

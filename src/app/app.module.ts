@@ -10,6 +10,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TableComponent } from './components/table/table.component';
+import { PopupComponent } from './components/popup/popup.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { QaComponent } from './pages/qa/qa.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     HomeComponent,
     RegistrationComponent,
-    ProfileComponent
+    ProfileComponent,
+    TableComponent,
+    PopupComponent,
+    DashboardComponent,
+    QaComponent
   ],
   imports: [
     BrowserModule,

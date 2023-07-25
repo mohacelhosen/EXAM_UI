@@ -17,7 +17,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormControl, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -41,7 +44,12 @@ import {FormControl, Validators, FormsModule, ReactiveFormsModule} from '@angula
     MatCheckboxModule,
     MatFormFieldModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
+    
   ],
 
 })

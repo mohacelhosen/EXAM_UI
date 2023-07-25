@@ -7,7 +7,6 @@ export interface User {
     dob: Date;
     password: string;
     gender: string;
-    active: boolean;
     designation:string;
   }
   
