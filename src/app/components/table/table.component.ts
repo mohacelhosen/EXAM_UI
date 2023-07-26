@@ -38,6 +38,18 @@ export class TableComponent {
     this.dataSource.filter = value;
   }
 
+  openPopUp(){
+    this.dialog.open(PopupComponent,{
+      width:'60%',
+      enterAnimationDuration:'250ms',
+      exitAnimationDuration:'250ms',
+      data:{
+        title:"User Info 👤"
+      },
+
+    })
+  }
+
   editUser(email: string) {
     console.log("Edit button Clicked")
   }
