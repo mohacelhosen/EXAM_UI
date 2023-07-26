@@ -39,7 +39,7 @@ export class TableComponent {
   }
 
   openPopUp(){
-    this.dialog.open(PopupComponent,{
+    let popupData=this.dialog.open(PopupComponent,{
       width:'60%',
       enterAnimationDuration:'250ms',
       exitAnimationDuration:'250ms',
@@ -47,6 +47,9 @@ export class TableComponent {
         title:"User Info 👤"
       },
 
+    })
+    popupData.afterClosed().subscribe(item=>{
+      this.loadUser();
     })
   }
 
@@ -58,8 +61,8 @@ export class TableComponent {
     if (confirm("Are you sure you want to delete this user?")) {
       this.service.deleteUser(email).subscribe({
         next: () => {
+          this.loadUser();
           // Delete successful, refresh the table
-          this.refreshTable(email);
           console.log("User deleted successfully.");
         },
         error: (error) => {
@@ -70,9 +73,5 @@ export class TableComponent {
     }
   }
 
-  private refreshTable(email: string) {
-    this.dataSource.data = this.dataSource.data.filter(user => user.email != email);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+  
 }
