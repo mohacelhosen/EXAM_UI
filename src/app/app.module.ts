@@ -14,6 +14,8 @@ import { TableComponent } from './components/table/table.component';
 import { PopupComponent } from './components/popup/popup.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { QaComponent } from './pages/qa/qa.component';
+import { LoginComponent } from './pages/login/login.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { QaComponent } from './pages/qa/qa.component';
     TableComponent,
     PopupComponent,
     DashboardComponent,
-    QaComponent
+    QaComponent,
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
