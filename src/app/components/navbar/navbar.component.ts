@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PopupService } from 'src/app/services/popup.service';
 
 
 @Component({
@@ -9,9 +10,10 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
 
-  constructor(private router:Router){}
+  constructor(private router:Router, private toast:PopupService){}
   signout(){
     localStorage.clear();
+    this.toast.showInfo("Succesffuly logout, See you soon 😉")
     this.router.navigate(['/login'])
   }
 }
