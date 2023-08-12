@@ -8,14 +8,14 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { QaComponent } from './pages/qa/qa.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { authGuard } from './guard/auth.guard';
+import { AuthGuard } from './guard/auth.guard';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' }, // Default route
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'navbar', component: NavbarComponent,  children: [
+  { path: 'navbar', component: NavbarComponent, canActivate:[AuthGuard],  children: [
     { path: '', pathMatch: 'full', redirectTo: 'dashboard' }, // Default child route
     { path: 'dashboard', component: DashboardComponent },
     { path: 'profile', component: ProfileComponent },

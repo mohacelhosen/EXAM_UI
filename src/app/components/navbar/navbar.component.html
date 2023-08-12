@@ -11,7 +11,7 @@
       <mat-menu #myProfileMenu>
         <button mat-menu-item routerLink="dashboard"><mat-icon>dashboard</mat-icon>Dashboard</button>
         <button mat-menu-item routerLink="profile"><mat-icon>edit</mat-icon>Profile</button>
-        <button mat-menu-item><mat-icon>exit_to_app</mat-icon>Signout</button>
+        <button mat-menu-item (click)="signout()"><mat-icon>exit_to_app</mat-icon>Signout</button>
       </mat-menu>
 </mat-toolbar>
 

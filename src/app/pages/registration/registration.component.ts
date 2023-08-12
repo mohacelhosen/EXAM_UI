@@ -1,17 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
+import { Router } from '@angular/router';
+import { PopupService } from 'src/app/services/popup.service';
+
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  styleUrls: ['./registration.component.css'],
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnInit {
   registrationForm!: FormGroup;
   isSubmitting = false;
 
-  constructor(private _formBuilder: FormBuilder, private regService: ApiService) {
+  constructor(
+    private _formBuilder: FormBuilder,
+    private regService: ApiService,
+    private router: Router,
+    private toast: PopupService
+  ) {}
+  ngOnInit(): void {
     this.registrationForm = this._formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -19,7 +28,7 @@ export class RegistrationComponent {
       dob: ['', Validators.required],
       gender: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      designation: ['', Validators.required]
+      designation: ['', Validators.required],
     });
   }
 
@@ -28,14 +37,15 @@ export class RegistrationComponent {
       this.isSubmitting = true;
       this.regService.userRegistration(this.registrationForm.value).subscribe({
         next: (val: any) => {
-          alert("Saved Successfully...😇");
-          this.registrationForm.reset();
+          this.toast.showSuccessTopCenter("Registered Successfully") 
+          console.log(val);
+          this.router.navigate(['login']);
         },
         error: (err: any) => {
           this.isSubmitting = false;
-          console.error(err);
-          alert("An error occurred. Please try again later.");
-        }
+          this.toast.showErrorBottonCenter(err);
+
+        },
       });
     }
   }
@@ -43,4 +53,5 @@ export class RegistrationComponent {
   clearform() {
     this.registrationForm.reset();
   }
+
 }

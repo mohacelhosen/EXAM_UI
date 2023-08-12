@@ -16,6 +16,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { QaComponent } from './pages/qa/qa.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgToastModule } from 'ng-angular-popup'
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgToastModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

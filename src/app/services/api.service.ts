@@ -7,28 +7,29 @@ import { User } from '../models/model';
   providedIn: 'root',
 })
 export class ApiService {
-  private apiUrl: string = "http://localhost:8080/api/user/signup";
-  private allApiUrl: string = "http://localhost:8080/api/user/users/all";
-  private deleteApiUrl = 'http://localhost:8080/api/user/delete';
-  private singleUserApiUrl="http://localhost:8080/api/user/find";
+  private baseUrl: string = "http://localhost:8080/api/exam-portal/";
 
   constructor(private http: HttpClient) { }
 
   userRegistration(data: any) {
-    return this.http.post(this.apiUrl, data);
+    return this.http.post(this.baseUrl+"auth/signup", data);
+  }
+
+  login(loginData:any){
+    return this.http.post(this.baseUrl+"auth/login",loginData);
   }
 
   getAllData(): Observable<User[]> {
-    return this.http.get<User[]>(this.allApiUrl);
+    return this.http.get<User[]>(this.baseUrl);
   }
 
   deleteUser(userEmail: string): Observable<any> {
-    const url = `${this.deleteApiUrl}/${userEmail}`;
+    const url = `${this.baseUrl}/${userEmail}`;
     return this.http.delete(url);
   }
 
   getSingleUser(userEmail:string):Observable<any>{
-    const url=`${this.singleUserApiUrl}/${userEmail}`;
+    const url=`${this.baseUrl}/${userEmail}`;
     return this.http.get<User>(url);
   }
 }

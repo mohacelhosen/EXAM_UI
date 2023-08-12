@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from '../../services/api.service'; // Replace with the actual path
+import { Router } from '@angular/router';
+import { PopupService } from 'src/app/services/popup.service';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +10,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  loginForm!:FormGroup;
+  loginForm!: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {  
-  }
+  constructor(
+    private _formBuilder: FormBuilder,
+    private loginService: ApiService,
+    private router: Router,
+    private toast:PopupService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this._formBuilder.group({
@@ -18,5 +25,28 @@ export class LoginComponent {
       password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
-  onSubmit(){}
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      let loginInfo = this.loginForm.value;
+      this.loginService.login(loginInfo).subscribe({
+        next: (response: any) => {
+          if (response.message === 'Login Successful😇' && response.token) {
+            // Storing the token in local storage
+            localStorage.setItem('token', response.token);
+            this.toast.showSuccessTopCenter('Login Successfully...😇')
+            this.router.navigate(['/navbar']);
+          } else {
+            this.toast.showInfo('Login failed. Please check your credentials.');
+          }
+        },
+        error: (err: any) => {
+          console.error(err);
+          this.toast.showErrorBottonCenter('An error occurred. Please try again later.');
+        }
+      });
+    }
+  }
+
+
 }

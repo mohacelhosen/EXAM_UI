@@ -1,16 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CoreService {
-  constructor(private _snackBar: MatSnackBar) {}
 
-  openSnackBar(message: string, action: string = 'ok') {
-    this._snackBar.open(message, action, {
-      duration: 1000,
-      verticalPosition: 'top',
-    });
+  constructor( private http: HttpClient) {}
+
+  private tokenValidationUrl = 'http://localhost:8080/api/exam-portal/auth/token'; // Replace with the actual URL
+
+  validateToken(token: string): Observable<boolean> {
+    return this.http.post<boolean>(this.tokenValidationUrl, { token });
   }
 }
