@@ -11,7 +11,6 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { ProfileComponent } from './pages/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TableComponent } from './components/table/table.component';
-import { PopupComponent } from './components/popup/popup.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { QaComponent } from './pages/qa/qa.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -27,7 +26,6 @@ import { NgToastModule } from 'ng-angular-popup'
     RegistrationComponent,
     ProfileComponent,
     TableComponent,
-    PopupComponent,
     DashboardComponent,
     QaComponent,
     LoginComponent,

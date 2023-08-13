@@ -1,1 +1,30 @@
-<h1>Profile Component</h1>
+<div style="height: 100vh;"> <!-- Set the height of the container to 100% of the viewport height -->
+    <mat-grid-list cols="12" rowHeight="100%"> <!-- Set rowHeight to 100% to make rows occupy the entire container height -->
+        <!-- left section -->
+        <mat-grid-tile colspan="4">
+            <div class="dashboard">
+                <div class="user-profile">
+                    <img src="https://avatars.githubusercontent.com/u/118649370?v=4" alt="User Profile Image">
+                    <h2>Username</h2>
+                    <p>"Your quote here."</p>
+                    <div class="social-media-links">
+                        <a href="https://www.linkedin.com/in/mohacel-hosen/" target="_blank"><img src="twitter-icon.png" alt="Twitter"></a>
+                        <a href="https://www.facebook.com/md.mohacel.hosen.568/" target="_blank"><img src="github-icon.png" alt="GitHub"></a>
+                        <!-- Add more social media links as needed -->
+                    </div>
+                </div>
+                <div class="achievements">
+                    <h2>Achievements</h2>
+                    <ul>
+                        <li>Completed Project X</li>
+                        <li>Contributed to Open Source Project Y</li>
+                        <li>Reached 1000 Followers</li>
+                        <!-- Add more achievements as needed -->
+                    </ul>
+                </div>
+            </div>
+            
+        </mat-grid-tile>
+        <mat-grid-tile colspan="8">2</mat-grid-tile>
+    </mat-grid-list>
+</div>

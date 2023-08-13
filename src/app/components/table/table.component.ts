@@ -5,7 +5,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from 'src/app/models/model';
 import { ApiService } from 'src/app/services/api.service';
-import { PopupComponent } from '../popup/popup.component';
 
 @Component({
   selector: 'app-table',
@@ -46,29 +45,10 @@ export class TableComponent {
     const value = (data.target as HTMLInputElement).value;
     this.dataSource.filter = value;
   }
+  addUser(){}
 
-  openPopUp(email:any, title:any,component:any) {
-    let popupData = this.dialog.open(PopupComponent, {
-      width: '60%',
-      enterAnimationDuration: '250ms',
-      exitAnimationDuration: '250ms',
-      data: {
-        title: title,
-        email:email,
-      },
-    });
-    popupData.afterClosed().subscribe((item) => {
-      this.loadUser();
-    });
-  }
-
-  editUser(email: string) {
-    console.log(email);
-    this.openPopUp(email, "Edit User Info 👤", PopupComponent);
-  }
-
-  addUser() {
-    this.openPopUp(undefined, "Add User Info 👤", PopupComponent);
+  editUser(email:string){
+    console.log(email)
   }
 
   deleteUser(email: string) {

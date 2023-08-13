@@ -10,7 +10,7 @@ export class PopupService {
 
   //show Toast on top center position
   showSuccessTopCenter(message:any) {
-    this.toast.success({detail:"SUCCESS",summary:`${message}`,duration:5000, position:'topCenter'});
+    this.toast.success({detail:"SUCCESS",summary:`${message}`,duration:2000, position:'topCenter'});
   }
 
   //show Toast on bottom center position
@@ -23,5 +23,10 @@ export class PopupService {
     this.toast.info({detail:"INFO",summary:`${message}`,sticky:true, position: 'topLeft'});
   }
 
+    //show Toast on top right position
+    showWarn(message:any) {
+      this.toast.warning({detail:"WARN",summary:`${message}`,duration:3000, position: 'topRight'});
+    }
+  
 
 }

@@ -4,7 +4,7 @@
       </button>
       <span>Exam Portal</span>
       <span class="example-spacer"></span>
-      <button mat-raised-button color="accent" routerLink="registration">Edit</button>
+      <span>{{userName}}</span>
       <button mat-button [matMenuTriggerFor]="myProfileMenu">
         <mat-icon class="mat-icon-profile" >account_circle</mat-icon>
       </button>
@@ -31,9 +31,11 @@
           <mat-list-item>
               <button mat-button routerLink="qa"><mat-icon>help</mat-icon>Help</button>
           </mat-list-item>
-          <mat-list-item>
-              <button mat-button routerLink="users"><mat-icon>analytics</mat-icon>Analytics</button>
-          </mat-list-item>
+          
+        <button mat-list-item *ngIf="userRole === 'ADMIN'">
+            <button mat-button routerLink="users"><mat-icon>analytics</mat-icon>Analytics</button>
+        </button>
+          
       </mat-nav-list>
   </mat-drawer>
 

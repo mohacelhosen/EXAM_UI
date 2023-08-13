@@ -7,7 +7,7 @@ import { PopupService } from 'src/app/services/popup.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   loginForm!: FormGroup;
@@ -16,13 +16,13 @@ export class LoginComponent {
     private _formBuilder: FormBuilder,
     private loginService: ApiService,
     private router: Router,
-    private toast:PopupService
+    private toast: PopupService
   ) {}
 
   ngOnInit(): void {
     this.loginForm = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 
@@ -34,7 +34,8 @@ export class LoginComponent {
           if (response.message === 'Login Successful😇' && response.token) {
             // Storing the token in local storage
             localStorage.setItem('token', response.token);
-            this.toast.showSuccessTopCenter('Login Successfully...😇')
+            localStorage.setItem('email', loginInfo.email);
+            this.toast.showSuccessTopCenter('Login Successfully...😇');
             this.router.navigate(['/navbar']);
           } else {
             this.toast.showInfo('Login failed. Please check your credentials.');
@@ -42,11 +43,13 @@ export class LoginComponent {
         },
         error: (err: any) => {
           console.error(err);
-          this.toast.showErrorBottonCenter('An error occurred. Please try again later.');
-        }
+          if (err.status === 401) {
+            this.toast.showWarn('Login failed due to incorrect credentials.');
+          } else {
+            this.toast.showErrorBottonCenter('An error occurred. Please try again later.');
+          }
+        },
       });
     }
   }
-
-
 }
