@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CoreService } from 'src/app/services/core.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,9 +9,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class ProfileComponent implements OnInit {
+  getLastPartAfterSlash = (url: string) => url.split('/').pop();
+
+  githubLink = 'https://github.com/mohacelhosen';
+  githubName = this.getLastPartAfterSlash(this.githubLink);
+
+  facebookLink = 'https://www.facebook.com/md.mohacel.hosen.568';
+  facebookName = this.getLastPartAfterSlash(this.facebookLink);
+
+  linkedinLink = 'https://www.linkedin.com/in/mohacel-hosen';
+  linkedinName = this.getLastPartAfterSlash(this.linkedinLink);
+
   userInfo!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private coreService:CoreService) {}
+
+  userName=this.coreService.getUserName();
 
   ngOnInit(): void {
     this.userInfo = this.formBuilder.group({

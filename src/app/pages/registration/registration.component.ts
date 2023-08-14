@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { PopupService } from 'src/app/services/popup.service';
 
 
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',

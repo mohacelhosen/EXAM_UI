@@ -1,0 +1,63 @@
+
+<form [formGroup]="settingForm" (ngSubmit)="onSubmit()">
+
+    <mat-card>
+        <mat-card-header>
+            <h1>Profile Setting</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Profile Photo Link</mat-label>
+                    <input matInput type="text" placeholder="Ex. Mohacel" formControlName="firstName">
+                </mat-form-field>
+            </div>
+            
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput type="text" placeholder="Ex. Mohacel" formControlName="firstName">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput type="text" placeholder="Ex. Hosen" formControlName="lastName">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dob">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field> 
+            </div>
+            
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Linkedin Link Link</mat-label>
+                    <input matInput type="text" placeholder="Ex. Mohacel" formControlName="firstName">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>GitHub Link</mat-label>
+                    <input matInput type="text" placeholder="Ex. Hosen" formControlName="lastName">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-footer>
+            <div style="margin:2%;text-align: right;">
+                <button mat-raised-button type="submit" color="primary">Update</button>
+            </div>
+        </mat-card-footer>
+    </mat-card>
+    
+
+</form>

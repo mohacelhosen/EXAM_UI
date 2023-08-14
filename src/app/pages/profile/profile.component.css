@@ -4,10 +4,11 @@ mat-grid-tile {
 
 .dashboard {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
     padding: 20px;
     background-color: #f0f0f0;
+    width: 100%;
+    height: 100vh;
 }
 
 .user-profile {
@@ -20,8 +21,8 @@ mat-grid-tile {
 }
 
 .user-profile img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
 }
 
@@ -34,14 +35,33 @@ mat-grid-tile {
     margin-top: 5px;
     font-style: italic;
 }
+.social-media-links {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 10px;
+}
 
-.social-media-links a {
+.social-media-link {
+    display: flex;
+    align-items: center; /* This ensures vertical alignment of images and links */
+    margin-bottom: 5px; /* Adjust this value to control the spacing between links */
+}
+
+.social-media-link img {
+    height: 24px;
+    width: 24px;
     margin-right: 10px;
 }
 
+.social-media-link a {
+    color: darkslategray;
+    font-size: 1.1rem;
+}
+
+
 .achievements {
     flex: 1;
-    margin-left: 20px;
     max-width: 400px;
     padding: 20px;
     background-color: #fff;
@@ -52,6 +72,8 @@ mat-grid-tile {
 .achievements h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    color: cornflowerblue;
+    text-decoration:underline;
 }
 
 .achievements ul {
@@ -62,3 +84,97 @@ mat-grid-tile {
 .achievements li {
     margin-bottom: 5px;
 }
+
+
+/* Awesome */
+.awesome-grid-tile {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-container {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 18px;
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+.awesome-grid-tile {
+    /* Existing styles */
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    opacity: 0; /* Start with 0 opacity for the animation */
+    animation: fadeIn 1s forwards; /* Apply the fadeIn animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Optional: Add a subtle upward animation */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Other styles (image-container, text-container, etc.) */
+
+.cta-button {
+    /* Existing styles */
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+

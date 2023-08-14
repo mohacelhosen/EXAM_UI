@@ -5,13 +5,24 @@
             <div class="dashboard">
                 <div class="user-profile">
                     <img src="https://avatars.githubusercontent.com/u/118649370?v=4" alt="User Profile Image">
-                    <h2>Username</h2>
-                    <p>"Your quote here."</p>
+                    <h2>{{userName | uppercase}}</h2>
+                    <p>"skilled person who can apply the theories and rules of software engineering."</p>
                     <div class="social-media-links">
-                        <a href="https://www.linkedin.com/in/mohacel-hosen/" target="_blank"><img src="twitter-icon.png" alt="Twitter"></a>
-                        <a href="https://www.facebook.com/md.mohacel.hosen.568/" target="_blank"><img src="github-icon.png" alt="GitHub"></a>
+                        <div class="social-media-link">
+                            <img src="../../../assets/linkedin.png" alt="LinkedIn">
+                            <a [href]="linkedinLink" target="_blank">{{linkedinName}}</a>
+                        </div>
+                        <div class="social-media-link">
+                            <img src="../../../assets/facebook.png" alt="Facebook">
+                            <a [href]="facebookLink" target="_blank">{{facebookName}}</a>
+                        </div>
+                        <div class="social-media-link">
+                            <img src="../../../assets/github.png" alt="GitHub">
+                            <a [href]="githubLink" target="_blank">{{githubName}}</a>
+                        </div>
                         <!-- Add more social media links as needed -->
                     </div>
+                    
                 </div>
                 <div class="achievements">
                     <h2>Achievements</h2>
@@ -25,6 +36,18 @@
             </div>
             
         </mat-grid-tile>
-        <mat-grid-tile colspan="8">2</mat-grid-tile>
+        <mat-grid-tile colspan="8" class="awesome-grid-tile">
+            <div class="content-wrapper">
+                <div class="image-container">
+                    <img src="../../../assets/programming.jpg" alt="Awesome Image">
+                </div>
+                <div class="text-container">
+                    <h2 class="title">Discover the Extraordinary</h2>
+                    <p class="description">Immerse yourself in a world of wonders where innovation meets elegance.</p>
+                    <button class="cta-button">Explore Now</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+        
     </mat-grid-list>
 </div>
