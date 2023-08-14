@@ -11,6 +11,7 @@ import { PopupService } from 'src/app/services/popup.service';
 export class SettingComponent implements OnInit {
   settingForm!: FormGroup;
   isSubmitting = false;
+  originalUserData: any; // Store original user data
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -32,6 +33,7 @@ export class SettingComponent implements OnInit {
     // Retrieve user data from API and populate form
     this.apiService.getSingleUser().subscribe(
       (user) => {
+        this.originalUserData = user; // Capture original user data
         this.populateFormWithUserData(user);
       },
       (error) => {
@@ -41,7 +43,6 @@ export class SettingComponent implements OnInit {
   }
 
   populateFormWithUserData(user: any): void {
-    // Convert dob array to LocalDate
     const dobArray = user.dob;
     const dob = new Date(dobArray[0], dobArray[1] - 1, dobArray[2]);
 
@@ -63,7 +64,10 @@ export class SettingComponent implements OnInit {
 
       const updatedUserData = this.settingForm.value;
 
-      this.apiService.updateUser(updatedUserData).subscribe(
+      // Merge updated data with unchanged data
+      const mergedUserData = { ...this.originalUserData, ...updatedUserData };
+
+      this.apiService.updateUser(mergedUserData).subscribe(
         (response) => {
           this.isSubmitting = false;
           // Show success message or handle as needed

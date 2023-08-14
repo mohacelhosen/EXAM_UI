@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
 import { CoreService } from 'src/app/services/core.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { CoreService } from 'src/app/services/core.service';
 
 export class ProfileComponent implements OnInit {
   getLastPartAfterSlash = (url: string) => url.split('/').pop();
+  profilePhoto=this.coreService.getUserPhoto();
 
   githubLink = 'https://github.com/mohacelhosen';
   githubName = this.getLastPartAfterSlash(this.githubLink);
@@ -22,7 +24,7 @@ export class ProfileComponent implements OnInit {
 
   userInfo!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private coreService:CoreService) {}
+  constructor(private formBuilder: FormBuilder, private coreService:CoreService, private apiService:ApiService) {}
 
   userName=this.coreService.getUserName();
 
@@ -37,6 +39,7 @@ export class ProfileComponent implements OnInit {
       designation: ['', Validators.required],
     });
   }
+
 
   saveUser(){}
 
