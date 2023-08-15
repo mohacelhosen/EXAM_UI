@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Quiz } from 'src/app/models/quiz';
 import { ApiService } from 'src/app/services/api.service';
 import { PopupService } from 'src/app/services/popup.service';
 
@@ -12,6 +13,7 @@ import { PopupService } from 'src/app/services/popup.service';
 export class AddQuestionComponent {
   quizId!:number;
   questionForm!:FormGroup;
+
   isSubmitting = false;
 
   constructor(private _route:ActivatedRoute,    private _formBuilder: FormBuilder,
@@ -22,8 +24,8 @@ export class AddQuestionComponent {
 
  
     ngOnInit(): void {
-      this.quizId=this._route.snapshot.params['quizId'];
-      console.log(this.quizId)
+      this.quizId = this._route.snapshot.params['quizId'];
+      console.log("quizId::"+this.quizId)
 
       this.questionForm = this._formBuilder.group({
         content:['', Validators.required],
@@ -33,8 +35,9 @@ export class AddQuestionComponent {
         option3:['', Validators.required],
         option4:['', Validators.required],
         answer:['', Validators.required],
-        quiz:[this.quizId]
+        quizId:[this.quizId]
       },
+      
 
     );
   }
@@ -46,9 +49,9 @@ export class AddQuestionComponent {
       this.isSubmitting = true;
       this.apiService.addQuestion(this.questionForm.value).subscribe({
         next: (val: any) => {
-          this.toast.showSuccessTopCenter("Category Successfully Added") 
+          this.toast.showSuccessTopCenter("Question Successfully Added") 
           console.log(val);
-          this.router.navigate(['navbar','categories']);
+          this.router.navigate(['navbar','view-quiz']);
         },
         error: (err: any) => {
           this.isSubmitting = false;

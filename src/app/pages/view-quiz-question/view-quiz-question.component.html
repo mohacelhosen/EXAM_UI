@@ -9,31 +9,31 @@
         </div>
     </mat-card-content>
 </mat-card>
-<mat-card *ngFor="let q of questions; let i = index" style="margin-top: 20px;">
+<mat-card *ngFor="let question of questions; let i = index" style="margin-top: 20px;">
     <mat-card-content>
         <p>
             <b>Q {{i+1}}.</b>
-            <span style="margin-left: 20px;" [innerHTML]="q.quiz.description"></span>
+            <span style="margin-left: 20px;" [innerHTML]="question.content"></span>
         </p>
         <div class="main-row">
             <div class="row">
                 <div>
-                    <p><b>1)</b>{{q.option1}}</p>
+                    <p><b>1)</b>{{question.option1}}</p>
                 </div>
                 <div>
-                    <p><b>2)</b>{{q.option2}}</p>
+                    <p><b>2)</b>{{question.option2}}</p>
                 </div>
             </div>
             <div class="row">
                 <div>
-                    <p><b>3)</b>{{q.option3}}</p>
+                    <p><b>3)</b>{{question.option3}}</p>
                 </div>
                 <div>
-                    <p><b>4)</b>{{q.option4}}</p>
+                    <p><b>4)</b>{{question.option4}}</p>
                 </div>
             </div>
             <mat-divider></mat-divider>
-            <span><i><b>Answer:: </b>{{q.answer}}</i></span>
+            <span><i><b>Answer:: </b>{{question.answer}}</i></span>
         </div>
     </mat-card-content>
 </mat-card>
