@@ -1,0 +1,33 @@
+
+<form [formGroup]="Category" (ngSubmit)="onSubmit()">
+    <div class="login-container">
+        <mat-card class="login-card">
+          <mat-card-header>
+            <h1>Add New Category</h1>
+          </mat-card-header>
+      
+          <mat-card-content>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input matInput type="text" placeholder="Enter Category Title" formControlName="title">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Short Description</mat-label>
+                    <textarea matInput placeholder="Write a short description about your category" style="height: 150px;" formControlName="description"></textarea>
+                </mat-form-field>
+            </div>
+          </mat-card-content>
+      
+          <mat-card-actions>
+            <div class="row">
+                <button mat-raised-button color="primary" type="submit">Save</button>
+                <button mat-raised-button color="warn" (click)="clearform()">Clear</button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      
+</form>

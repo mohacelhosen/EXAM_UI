@@ -1,0 +1,14 @@
+.mat-mdc-list-item-icon {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  mat-list-item {
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12); /* Add this line for the divider */
+  }
+  mat-card{
+    margin: 15px;
+  }
+  mat-list-item{
+    margin-top: 15px;
+  }
+  

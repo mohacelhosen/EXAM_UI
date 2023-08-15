@@ -11,7 +11,7 @@ import { CoreService } from 'src/app/services/core.service';
 
 export class ProfileComponent implements OnInit {
   getLastPartAfterSlash = (url: string) => url.split('/').pop();
-  profilePhoto=this.coreService.getUserPhoto();
+  profilePhoto=null;
 
   githubLink = 'https://github.com/mohacelhosen';
   githubName = this.getLastPartAfterSlash(this.githubLink);
@@ -37,7 +37,8 @@ export class ProfileComponent implements OnInit {
       gender: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8)]],
       designation: ['', Validators.required],
-    });
+    },
+    this.profilePhoto=this.coreService.getUserPhoto());
   }
 
 
@@ -45,10 +46,5 @@ export class ProfileComponent implements OnInit {
 
   onSubmit(){}
 
-  tiles:any[]= [
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
-  ];
+
 }

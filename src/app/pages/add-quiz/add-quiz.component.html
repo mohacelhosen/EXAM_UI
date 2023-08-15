@@ -1,0 +1,60 @@
+
+<form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
+    <div class="login-container">
+        <mat-card class="login-card">
+          <mat-card-header>
+            <h1>Add New Quiz</h1>
+          </mat-card-header>
+      
+          <mat-card-content>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input matInput type="text" placeholder="Enter Category Title" formControlName="title">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Short Description</mat-label>
+                    <textarea matInput placeholder="Write a short description about your category" formControlName="description"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Number of Questions</mat-label>
+                    <input matInput type="number" placeholder="write short description" formControlName="numberOfQuestions">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Max Marks</mat-label>
+                    <input matInput type="number" placeholder="Enter Max Marks" formControlName="maxMarks">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <mat-radio-group aria-label="Active" formControlName="isActive">
+                    <mat-label style="font-size: 16px; margin-left: 15px;">isActive</mat-label>
+                    <mat-radio-button value="true">Yes</mat-radio-button>
+                    <mat-radio-button value="false">No</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Category</mat-label>
+                    <mat-select formControlName="category">
+                        <mat-option *ngFor="let c of categories" [value]="c">{{c.title}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            
+          </mat-card-content>
+      
+          <mat-card-actions>
+            <div class="row">
+                <button mat-raised-button color="primary" type="submit">Save</button>
+                <button mat-raised-button color="warn" (click)="clearform()">Clear</button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      
+</form>
