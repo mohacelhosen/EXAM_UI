@@ -4,12 +4,14 @@ import { CoreService } from 'src/app/services/core.service';
 import { PopupService } from 'src/app/services/popup.service';
 
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+
   userRole: string | null | undefined;
 
   constructor(private router:Router, private toast:PopupService, private coreService:CoreService){}

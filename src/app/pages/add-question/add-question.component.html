@@ -1,0 +1,62 @@
+
+<form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+    <div class="login-container">
+        <mat-card class="login-card">
+          <mat-card-content>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Question</mat-label>
+                    <input matInput type="text" placeholder="write your question" formControlName="content">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Image URL</mat-label>
+                    <input matInput type="text" placeholder="Paaste your image URL" formControlName="image">
+                </mat-form-field>
+            </div>
+            
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Option-1</mat-label>
+                    <input matInput type="text" placeholder="write your option1" formControlName="option1">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Option-2</mat-label>
+                    <input matInput type="text" placeholder="write your option2" formControlName="option2">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Option-3</mat-label>
+                    <input matInput type="text" placeholder="write your option3" formControlName="option3">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Option-4</mat-label>
+                    <input matInput type="text" placeholder="write your option4" formControlName="option4">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Answer</mat-label>
+                    <input matInput type="text" placeholder="write your Answer" formControlName="answer">
+                </mat-form-field>
+            </div>
+            
+            
+          </mat-card-content>
+      
+          <mat-card-actions>
+            <div class="row">
+                <button mat-raised-button color="primary" type="submit">Save</button>
+                <button mat-raised-button color="warn" (click)="clearform()">Clear</button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      
+</form>

@@ -1,1 +1,39 @@
 <h1>This is View-Quiz-Component</h1>
+<mat-card>
+    <mat-card-header>
+        <h2>QUIZ: {{qtitle}}</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row">
+            <button mat-stroked-button color="accent" [routerLink]="['/navbar/add-question',quizId]">Add Questions</button>
+        </div>
+    </mat-card-content>
+</mat-card>
+<mat-card *ngFor="let q of questions; let i = index" style="margin-top: 20px;">
+    <mat-card-content>
+        <p>
+            <b>Q {{i+1}}.</b>
+            <span style="margin-left: 20px;" [innerHTML]="q.quiz.description"></span>
+        </p>
+        <div class="main-row">
+            <div class="row">
+                <div>
+                    <p><b>1)</b>{{q.option1}}</p>
+                </div>
+                <div>
+                    <p><b>2)</b>{{q.option2}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <p><b>3)</b>{{q.option3}}</p>
+                </div>
+                <div>
+                    <p><b>4)</b>{{q.option4}}</p>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <span><i><b>Answer:: </b>{{q.answer}}</i></span>
+        </div>
+    </mat-card-content>
+</mat-card>

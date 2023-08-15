@@ -23,18 +23,43 @@
               <button mat-button routerLink="dashboard"><mat-icon>dashboard</mat-icon>Dashboard</button>
           </mat-list-item>
           <mat-list-item>
+            <button mat-button routerLink="categories"><mat-icon>category</mat-icon>View Categories</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-button routerLink="view-quiz"><mat-icon>quiz</mat-icon>View Quiz</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-button routerLink="category"><mat-icon><span class="material-icons">
+              add_circle_outline
+              </span></mat-icon>Add Category</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-button routerLink="add-quiz"><mat-icon>menu</mat-icon>Add Quiz</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-button routerLink="exam">
+              <img src="../../../assets/icons8-exam-16.png" alt="Exam Icon" width="16" height="16">
+              Exam
+            </button>
+          </mat-list-item>
+          
+          <!-- <mat-list-item>
+            <button mat-button routerLink="view-questions"><mat-icon>question</mat-icon>View Questions</button>
+          </mat-list-item> -->
+          
+          <mat-list-item>
               <button mat-button routerLink="home"><mat-icon>home</mat-icon>Home</button>
           </mat-list-item>
           <mat-list-item>
-              <button mat-button routerLink="profile"><mat-icon>settings</mat-icon>Setting</button>
+              <button mat-button routerLink="setting"><mat-icon>settings</mat-icon>Setting</button>
           </mat-list-item>
           <mat-list-item>
               <button mat-button routerLink="qa"><mat-icon>help</mat-icon>Help</button>
           </mat-list-item>
           
-        <button mat-list-item *ngIf="userRole === 'ADMIN'">
+          <button mat-list-item *ngIf="userRole === 'ADMIN' || userRole === 'TEACHER'">
             <button mat-button routerLink="users"><mat-icon>analytics</mat-icon>Analytics</button>
-        </button>
+          </button>        
           
       </mat-nav-list>
   </mat-drawer>

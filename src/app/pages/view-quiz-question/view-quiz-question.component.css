@@ -1,0 +1,24 @@
+
+
+mat-card{
+    margin: 2%;
+    text-align: left;
+}
+
+.mat-mdc-form-field {
+    width: 98%;
+    margin: 1%;
+}
+
+.row {
+    display: flex;
+    justify-content:space-between;
+}
+
+.row div {
+    flex: 1;
+    padding: 10px;
+    align-content: left;
+}
+
+  

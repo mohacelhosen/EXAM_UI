@@ -16,7 +16,15 @@ import { QaComponent } from './pages/qa/qa.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ToastrModule } from 'ngx-toastr';
-import { NgToastModule } from 'ng-angular-popup'
+import { NgToastModule } from 'ng-angular-popup';
+import { ExamComponent } from './pages/exam/exam.component';
+import { SettingComponent } from './pages/setting/setting.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { CategoryComponent } from './pages/category/category.component';
+import { ViewQuizComponent } from './pages/view-quiz/view-quiz.component';
+import { AddQuizComponent } from './pages/add-quiz/add-quiz.component';
+import { ViewQuizQuestionComponent } from './pages/view-quiz-question/view-quiz-question.component';
+import { AddQuestionComponent } from './pages/add-question/add-question.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +37,15 @@ import { NgToastModule } from 'ng-angular-popup'
     DashboardComponent,
     QaComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ExamComponent,
+    SettingComponent,
+    CategoriesComponent,
+    CategoryComponent,
+    ViewQuizComponent,
+    AddQuizComponent,
+    ViewQuizQuestionComponent,
+    AddQuestionComponent
   ],
   imports: [
     BrowserModule,

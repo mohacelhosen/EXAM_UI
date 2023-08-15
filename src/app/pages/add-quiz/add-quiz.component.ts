@@ -25,7 +25,7 @@ export class AddQuizComponent {
 
   ngOnInit(): void {
       this.quizForm = this._formBuilder.group({
-        qid:[],
+        quizId:[],
         title:['', Validators.required],
         description:['', Validators.required],
         maxMarks:['', Validators.required],

@@ -48,4 +48,26 @@ export class CoreService {
 
     return "USER"; // USER not found
   }
+
+  getUserPhoto(){
+    const token = localStorage.getItem('token');
+
+    if (token) {
+        try {
+            const tokenPayload = JSON.parse(atob(token.split('.')[1]));
+            console.log('Token Payload:', tokenPayload);
+            const appUserPhoto = tokenPayload.userPhoto;
+            console.log('User Photo:', appUserPhoto);
+            return appUserPhoto;
+        } catch (error) {
+            console.error('Error parsing user photo payload:', error);
+            return null;
+        }
+    }
+
+    return null; // USER Photo not found
+}
+
+
+  
 }

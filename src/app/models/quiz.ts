@@ -1,7 +1,7 @@
 import { Category } from "./category";
 
 export interface Quiz {
-qid:number;
+quizId:number;
 title:string;
 description:string;
 maxMarks:string;
