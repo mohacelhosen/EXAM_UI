@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'navbar', component: NavbarComponent, canActivate:[AuthGuard],  children: [
     { path: '', pathMatch: 'full', redirectTo: 'dashboard' }, // Default child route
-    { path: 'dashboard', component: DashboardComponent },
+    { path: 'dashboard', component: ProfileComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'qa', component: QaComponent },
     { path: 'users', component: TableComponent },

@@ -53,7 +53,8 @@ export class AddQuestionComponent {
         next: (val: any) => {
           this.toast.showSuccessTopCenter("Question Successfully Added");
           console.log(val);
-          this.router.navigate(['navbar', 'view-quiz']);
+          // this.router.navigate(['navbar', 'view-quiz']);
+          this.clearForm();
         },
         error: (err: any) => {
           this.isSubmitting = false;

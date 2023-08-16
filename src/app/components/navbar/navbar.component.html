@@ -9,7 +9,7 @@
         <mat-icon class="mat-icon-profile" >account_circle</mat-icon>
       </button>
       <mat-menu #myProfileMenu>
-        <button mat-menu-item routerLink="dashboard"><mat-icon>dashboard</mat-icon>Dashboard</button>
+        <!-- <button mat-menu-item routerLink="dashboard"><mat-icon>dashboard</mat-icon>Dashboard</button> -->
         <button mat-menu-item routerLink="profile"><mat-icon>edit</mat-icon>Profile</button>
         <button mat-menu-item (click)="signout()"><mat-icon>exit_to_app</mat-icon>Signout</button>
       </mat-menu>
@@ -28,13 +28,12 @@
           <mat-list-item>
             <button mat-button routerLink="view-quiz"><mat-icon>quiz</mat-icon>View Quiz</button>
           </mat-list-item>
-          <mat-list-item>
-            <button mat-button routerLink="category"><mat-icon><span class="material-icons">
-              add_circle_outline
-              </span></mat-icon>Add Category</button>
+          <mat-list-item *ngIf="userRole === 'ADMIN' || userRole === 'TEACHER'">
+            <button mat-button routerLink="category"   >
+              <mat-icon><span class="material-icons">add_circle_outline</span></mat-icon>Add Category</button>
           </mat-list-item>
-          <mat-list-item>
-            <button mat-button routerLink="add-quiz"><mat-icon>menu</mat-icon>Add Quiz</button>
+          <mat-list-item  *ngIf="userRole === 'ADMIN' || userRole === 'TEACHER'">
+            <button mat-button routerLink="add-quiz"  ><mat-icon>menu</mat-icon>Add Quiz</button>
           </mat-list-item>
           <mat-list-item>
             <button mat-button routerLink="dashboard" [matMenuTriggerFor]="examMenu">
@@ -63,10 +62,12 @@
           <mat-list-item>
               <button mat-button routerLink="qa"><mat-icon>help</mat-icon>Help</button>
           </mat-list-item>
-          
-          <button mat-list-item *ngIf="userRole === 'ADMIN' || userRole === 'TEACHER'">
-            <button mat-button routerLink="users"><mat-icon>analytics</mat-icon>Analytics</button>
-          </button>        
+          <mat-list-item *ngIf="userRole === 'ADMIN' || userRole === 'TEACHER'">
+            <button mat-button  [routerLink]="'users'">
+              <mat-icon>analytics</mat-icon>Analytics
+            </button>
+        </mat-list-item>
+           
           
       </mat-nav-list>
   </mat-drawer>

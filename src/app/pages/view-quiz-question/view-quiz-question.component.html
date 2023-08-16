@@ -3,7 +3,7 @@
     <mat-card-header>
         <h2>QUIZ: {{qtitle}}</h2>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content *ngIf="userRole === 'ADMIN' || userRole === 'TEACHER'">
         <div class="row">
             <button mat-stroked-button color="accent" [routerLink]="['/navbar/add-question',quizId]">Add Questions</button>
         </div>

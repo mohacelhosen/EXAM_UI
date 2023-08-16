@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { PopupService } from 'src/app/services/popup.service';
 
@@ -16,7 +17,8 @@ export class SettingComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private toast: PopupService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -72,6 +74,7 @@ export class SettingComponent implements OnInit {
           this.isSubmitting = false;
           // Show success message or handle as needed
           this.toast.showSuccessTopCenter('User information updated successfully.');
+          this.router.navigate(['navbar', 'profile']);
         },
         (error) => {
           this.isSubmitting = false;

@@ -11,22 +11,27 @@ import { CoreService } from 'src/app/services/core.service';
 
 export class ProfileComponent implements OnInit {
   getLastPartAfterSlash = (url: string) => url.split('/').pop();
-  profilePhoto=null;
+  profilePhoto = null;
 
-  githubLink = 'https://github.com/mohacelhosen';
-  githubName = this.getLastPartAfterSlash(this.githubLink);
+  githubLink: any = '';
+  githubName: any = '';
 
-  facebookLink = 'https://www.facebook.com/md.mohacel.hosen.568';
-  facebookName = this.getLastPartAfterSlash(this.facebookLink);
+  facebookLink: any = '';
+  facebookName: any = '';
 
-  linkedinLink = 'https://www.linkedin.com/in/mohacel-hosen';
-  linkedinName = this.getLastPartAfterSlash(this.linkedinLink);
+  linkedinLink: any = '';
+  linkedinName: any = '';
 
   userInfo!: FormGroup;
+  userDetailsWithLink: any;
 
-  constructor(private formBuilder: FormBuilder, private coreService:CoreService, private apiService:ApiService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private coreService: CoreService,
+    private apiService: ApiService
+  ) {}
 
-  userName=this.coreService.getUserName();
+  userName = this.coreService.getUserName();
 
   ngOnInit(): void {
     this.userInfo = this.formBuilder.group({
@@ -37,14 +42,31 @@ export class ProfileComponent implements OnInit {
       gender: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8)]],
       designation: ['', Validators.required],
-    },
-    this.profilePhoto=this.coreService.getUserPhoto());
+    });
+  
+    // Retrieve user data from API and populate form
+    this.apiService.getSingleUser().subscribe(
+      (user) => {
+        this.userDetailsWithLink = user; // Capture original user data
+  
+        // Move the assignments here after userDetailsWithLink is initialized
+        this.githubLink = this.userDetailsWithLink.github;
+        this.githubName = this.getLastPartAfterSlash(this.githubLink);
+  
+        this.facebookLink = this.userDetailsWithLink.facebook;
+        this.facebookName = this.getLastPartAfterSlash(this.facebookLink);
+  
+        this.linkedinLink = this.userDetailsWithLink.linkedin;
+        this.linkedinName = this.getLastPartAfterSlash(this.linkedinLink);
+  
+        // Corrected assignment for profilePhoto
+        this.profilePhoto = this.userDetailsWithLink.userPhoto;
+      },
+      (error) => {
+        console.error('API Error:', error);
+      }
+    );
   }
-
-
-  saveUser(){}
-
-  onSubmit(){}
-
+  
 
 }
