@@ -34,15 +34,13 @@ export class AddQuizComponent {
       maxMarks: ['', Validators.required],
       numberOfQuestions: ['', Validators.required],
       isActive: ['', Validators.required],
-      categoryObject: this._formBuilder.group({
-        categoryId: ['', Validators.required]
-      })
+      categoryObject: [null, Validators.required] // Set initial value to null
     });
 
     this.apiService.getAllCategory().subscribe(
       (res) => {
         this.categories = res;
-        this.quizForm.get('categoryObject.categoryId')?.setValue(this.categories[0]?.categoryId);
+        this.quizForm.get('categoryObject')?.setValue(this.categories[0]?.categoryId);
       },
       (error) => {
         console.log(error);
@@ -53,9 +51,17 @@ export class AddQuizComponent {
 
   onSubmit() {
     if (this.quizForm.valid && !this.isSubmitting) {
-      console.log(this.quizForm.value);
+      const quizData = {
+        ...this.quizForm.value,
+        categoryObject: {
+          categoryId: this.quizForm.get('categoryObject')?.value
+        }
+      };
+
+      console.log(quizData);
       this.isSubmitting = true;
-      this.apiService.addQuiz(this.quizForm.value).subscribe({
+
+      this.apiService.addQuiz(quizData).subscribe({
         next: (val: any) => {
           this.toast.showSuccessTopCenter("Category Successfully Added");
           console.log(val);
