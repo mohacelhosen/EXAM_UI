@@ -37,10 +37,17 @@
             <button mat-button routerLink="add-quiz"><mat-icon>menu</mat-icon>Add Quiz</button>
           </mat-list-item>
           <mat-list-item>
-            <button mat-button routerLink="exam">
+            <button mat-button routerLink="dashboard" [matMenuTriggerFor]="examMenu">
               <img src="../../../assets/icons8-exam-16.png" alt="Exam Icon" width="16" height="16">
               Exam
             </button>
+            <mat-menu #examMenu>
+              <button mat-menu-item *ngFor="let c of categories" [routerLink]="['exam/', c.categoryId]">
+                <mat-icon>dashboard</mat-icon>
+                {{ c.title }}
+              </button>
+            </mat-menu>
+
           </mat-list-item>
           
           <!-- <mat-list-item>

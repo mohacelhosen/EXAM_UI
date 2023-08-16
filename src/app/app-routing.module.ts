@@ -32,7 +32,7 @@ const routes: Routes = [
     { path: 'users', component: TableComponent },
     { path: 'home', component: HomeComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'exam', component: ExamComponent },
+    { path: 'exam/:catagoryId', component: ExamComponent },
     { path: 'category', component: CategoryComponent},
     { path: 'categories', component: CategoriesComponent},
     { path: 'view-quiz', component: ViewQuizComponent},
