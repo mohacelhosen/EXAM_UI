@@ -7,5 +7,5 @@ description:string;
 maxMarks:string;
 numberOfQuestions:string;
 isActive:boolean;
-category:Category;
+categoryObject:Category;
 }

@@ -18,6 +18,7 @@ import { ViewQuizComponent } from './pages/view-quiz/view-quiz.component';
 import { AddQuizComponent } from './pages/add-quiz/add-quiz.component';
 import { ViewQuizQuestionComponent } from './pages/view-quiz-question/view-quiz-question.component';
 import { AddQuestionComponent } from './pages/add-question/add-question.component';
+import { ViewCategoryQuizComponent } from './pages/view-category-quiz/view-category-quiz.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' }, // Default route
@@ -37,6 +38,7 @@ const routes: Routes = [
     { path: 'view-quiz', component: ViewQuizComponent},
     { path: 'add-quiz', component: AddQuizComponent},
     { path: 'view-questions/:quizId/:title', component: ViewQuizQuestionComponent },
+    { path: 'view-category-quiz/:catagoryId', component: ViewCategoryQuizComponent },
     { path: 'add-question/:quizId', component: AddQuestionComponent },
     { path: 'setting', component: SettingComponent },
     // Other child routes within the NavbarComponent

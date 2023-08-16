@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Quiz } from 'src/app/models/quiz';
 import { ApiService } from 'src/app/services/api.service';
 import { PopupService } from 'src/app/services/popup.service';
@@ -11,7 +12,10 @@ import { PopupService } from 'src/app/services/popup.service';
 export class ViewQuizComponent {
   quizzes:Quiz[] = [];
 
-  constructor(private apiService:ApiService, private toast:PopupService){}
+
+  constructor(private apiService:ApiService, private toast:PopupService, private _route:ActivatedRoute,){
+
+  }
 
   ngOnInit(): void {
     this.apiService.getAllQuiz().subscribe((res)=>{
@@ -23,4 +27,6 @@ export class ViewQuizComponent {
     }
     );
   }
+
+
 }

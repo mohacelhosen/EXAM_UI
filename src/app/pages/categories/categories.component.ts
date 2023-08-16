@@ -9,8 +9,6 @@ import { PopupService } from 'src/app/services/popup.service';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent {
-
-
   categories:Category[] = [];
 
   constructor(private apiService:ApiService, private toast:PopupService){}

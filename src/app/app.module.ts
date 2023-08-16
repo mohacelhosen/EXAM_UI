@@ -24,7 +24,8 @@ import { CategoryComponent } from './pages/category/category.component';
 import { ViewQuizComponent } from './pages/view-quiz/view-quiz.component';
 import { AddQuizComponent } from './pages/add-quiz/add-quiz.component';
 import { ViewQuizQuestionComponent } from './pages/view-quiz-question/view-quiz-question.component';
-import { AddQuestionComponent } from './pages/add-question/add-question.component'
+import { AddQuestionComponent } from './pages/add-question/add-question.component';
+import { ViewCategoryQuizComponent } from './pages/view-category-quiz/view-category-quiz.component'
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AddQuestionComponent } from './pages/add-question/add-question.componen
     ViewQuizComponent,
     AddQuizComponent,
     ViewQuizQuestionComponent,
-    AddQuestionComponent
+    AddQuestionComponent,
+    ViewCategoryQuizComponent
   ],
   imports: [
     BrowserModule,

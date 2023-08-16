@@ -8,7 +8,10 @@
               <mat-icon matListItemIcon>note</mat-icon>
               <div matListItemTitle>{{c.title}}</div>
               <div matListItemLine>{{c.description }}</div>
+              <button mat-stroked-button color="accent" [routerLink]="['/navbar/view-category-quiz', c.categoryId]">View Quizzes</button>
+
             </mat-list-item>
+            <mat-divider></mat-divider>
           </mat-list>
     </mat-card-content>
       <mat-card-footer>

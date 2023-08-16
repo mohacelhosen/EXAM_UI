@@ -91,6 +91,16 @@ export class ApiService {
       'http://localhost:8080/api/exam-portal/quiz/all',{ headers }
     );
   }
+
+  getQuizByCategoryId(categoryId:number): Observable<Quiz[]> {
+    const token = localStorage.getItem('token');
+    console.log('Token:', token); // Check if the token is fetched correctly
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.get<Quiz[]>(
+      `http://localhost:8080/api/exam-portal/quiz/category/${categoryId}`,{ headers }
+    );
+  }
   
   addQuiz(quiz:Quiz): Observable<any>{
     const token = localStorage.getItem('token');
