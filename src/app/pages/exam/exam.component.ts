@@ -12,6 +12,7 @@ import { PopupService } from 'src/app/services/popup.service';
 export class ExamComponent {
   catagoryId!:number;
   quizzes:Quiz[] = [];
+ 
 
   constructor(private apiService:ApiService, private toast:PopupService,private _route:ActivatedRoute,){
     this.catagoryId=this._route.snapshot.params['catagoryId'];
@@ -21,6 +22,7 @@ export class ExamComponent {
   ngOnInit(): void {
     this.apiService.getQuizByCategoryId(this.catagoryId).subscribe((res)=>{
       this.quizzes=res;
+      console.log(this.quizzes)
     },
     (error)=>{
       console.log(error)

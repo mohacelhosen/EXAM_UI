@@ -9,3 +9,17 @@
     background-image: url("../../../assets//icons8-exam-16.png");
     background-size: cover;
 }
+
+mat-card{
+    margin: 10px;
+}
+.header-image{
+    background-image: url("../../../assets/quiz-icon.png");
+    background-size: cover;
+}
+mat-card-content,mat-card-subtitle{
+    text-align: left;
+}
+mat-card-actions button{
+    margin:2px  15px;
+}

@@ -8,11 +8,9 @@ import { CoreService } from 'src/app/services/core.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
 })
-
 export class ProfileComponent implements OnInit {
-  getLastPartAfterSlash = (url: string) => url.split('/').pop();
-  profilePhoto = null;
-
+  profilePhoto = 'https://th.bing.com/th/id/OIP.zVWqISZXWTl4XbcHWw0jVQHaHa?pid=ImgDet&rs=1&fbclid=IwAR0hveyp2c7dTi7KQ1YyoCJcbrsfYomyW3Ps3wdXljD66xkTMxTAu1cBAKw';
+  
   githubLink: any = '';
   githubName: any = '';
 
@@ -44,22 +42,25 @@ export class ProfileComponent implements OnInit {
       designation: ['', Validators.required],
     });
   
-    // Retrieve user data from API and populate form
     this.apiService.getSingleUser().subscribe(
       (user) => {
-        this.userDetailsWithLink = user; // Capture original user data
-  
-        // Move the assignments here after userDetailsWithLink is initialized
-        this.githubLink = this.userDetailsWithLink.github;
-        this.githubName = this.getLastPartAfterSlash(this.githubLink);
-  
-        this.facebookLink = this.userDetailsWithLink.facebook;
-        this.facebookName = this.getLastPartAfterSlash(this.facebookLink);
-  
-        this.linkedinLink = this.userDetailsWithLink.linkedin;
-        this.linkedinName = this.getLastPartAfterSlash(this.linkedinLink);
-  
-        // Corrected assignment for profilePhoto
+        this.userDetailsWithLink = user;
+
+        if (this.userDetailsWithLink.github) {
+          this.githubLink = this.userDetailsWithLink.github;
+          this.githubName = this.getLastPartAfterSlash(this.githubLink);
+        }
+
+        if (this.userDetailsWithLink.facebook) {
+          this.facebookLink = this.userDetailsWithLink.facebook;
+          this.facebookName = this.getLastPartAfterSlash(this.facebookLink);
+        }
+
+        if (this.userDetailsWithLink.linkedin) {
+          this.linkedinLink = this.userDetailsWithLink.linkedin;
+          this.linkedinName = this.getLastPartAfterSlash(this.linkedinLink);
+        }
+
         this.profilePhoto = this.userDetailsWithLink.userPhoto;
       },
       (error) => {
@@ -67,6 +68,6 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
-  
 
+  private getLastPartAfterSlash = (url: string) => url.split('/').pop() || '';
 }

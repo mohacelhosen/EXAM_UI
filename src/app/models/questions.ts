@@ -10,4 +10,5 @@ export interface Question {
   option4: string,
   answer: string,
   quizObject: Quiz // Use the Quiz type here
+  givenAnswer: string // Add the givenAnswer field
 }

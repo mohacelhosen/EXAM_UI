@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-title><h1>Total Coreect Answer:: {{correctAnswer}}</h1></mat-card-title>
+</mat-card>
+
+<form (ngSubmit)="submitQuiz()" [formGroup]="quizForm">
+    <mat-card *ngFor="let question of questions; let i = index" style="margin-top: 20px;">
+      <mat-card-header>
+        <h3>Question {{ i + 1 }}</h3>
+      </mat-card-header>
+      <mat-card-content>
+        <p [innerHTML]="question.content"></p>
+        <mat-radio-group [formControlName]="'question' + question.questionId">
+          <mat-radio-button [value]="question.option1">{{ question.option1 }}</mat-radio-button>
+          <mat-radio-button [value]="question.option2">{{ question.option2 }}</mat-radio-button>
+          <mat-radio-button [value]="question.option3">{{ question.option3 }}</mat-radio-button>
+          <mat-radio-button [value]="question.option4">{{ question.option4 }}</mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="quizForm.get('question' + question.questionId)!.hasError('required') && formSubmitted">
+          <p style="color: red;">Please select an answer.</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  
+    <button mat-raised-button color="accent" type="submit">Submit</button>
+  </form>
+  

@@ -19,6 +19,7 @@ import { AddQuizComponent } from './pages/add-quiz/add-quiz.component';
 import { ViewQuizQuestionComponent } from './pages/view-quiz-question/view-quiz-question.component';
 import { AddQuestionComponent } from './pages/add-question/add-question.component';
 import { ViewCategoryQuizComponent } from './pages/view-category-quiz/view-category-quiz.component';
+import { StartExamComponent } from './pages/start-exam/start-exam.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' }, // Default route
@@ -37,6 +38,7 @@ const routes: Routes = [
     { path: 'categories', component: CategoriesComponent},
     { path: 'view-quiz', component: ViewQuizComponent},
     { path: 'add-quiz', component: AddQuizComponent},
+    { path: 'exam-start/:quizId', component: StartExamComponent},
     { path: 'view-questions/:quizId/:title', component: ViewQuizQuestionComponent },
     { path: 'view-category-quiz/:catagoryId', component: ViewCategoryQuizComponent },
     { path: 'add-question/:quizId', component: AddQuestionComponent },
