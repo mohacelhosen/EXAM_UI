@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CoreService {
+  TotalCorrectAnswer=0;
 
   constructor( private http: HttpClient) {}
 

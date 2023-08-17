@@ -24,11 +24,7 @@ mat-card-title{
     text-align: center;
     
 }
-mat-card-title h1{
-    font-size: 36px;
-    margin: 15px;
-    color: yellowgreen;
-}
+
 button{
     margin: 0px 0px 20px 00px;
 }

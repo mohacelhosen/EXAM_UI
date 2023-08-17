@@ -24,6 +24,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import {NgFor, DatePipe} from '@angular/common';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -58,6 +59,7 @@ import {NgFor, DatePipe} from '@angular/common';
     DatePipe,
     NgFor,
     FormsModule,
+    MatProgressSpinnerModule,
 
     
   ],

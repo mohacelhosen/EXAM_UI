@@ -20,6 +20,7 @@ import { ViewQuizQuestionComponent } from './pages/view-quiz-question/view-quiz-
 import { AddQuestionComponent } from './pages/add-question/add-question.component';
 import { ViewCategoryQuizComponent } from './pages/view-category-quiz/view-category-quiz.component';
 import { StartExamComponent } from './pages/start-exam/start-exam.component';
+import { ResultComponent } from './components/result/result.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' }, // Default route
@@ -43,6 +44,7 @@ const routes: Routes = [
     { path: 'view-category-quiz/:catagoryId', component: ViewCategoryQuizComponent },
     { path: 'add-question/:quizId', component: AddQuestionComponent },
     { path: 'setting', component: SettingComponent },
+    { path: 'result', component: ResultComponent },
     // Other child routes within the NavbarComponent
     {path:'**', component:NotFoundComponent}
   ]},

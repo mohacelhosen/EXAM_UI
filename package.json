@@ -24,6 +24,7 @@
     "cors": "^2.8.5",
     "ng-angular-popup": "^0.4.7",
     "ngx-toastr": "^17.0.2",
+    "ngx-ui-loader": "^13.0.0",
     "rxjs": "~7.8.0",
     "save": "^2.9.0",
     "tslib": "^2.3.0",

@@ -27,6 +27,8 @@ import { ViewQuizQuestionComponent } from './pages/view-quiz-question/view-quiz-
 import { AddQuestionComponent } from './pages/add-question/add-question.component';
 import { ViewCategoryQuizComponent } from './pages/view-category-quiz/view-category-quiz.component';
 import { StartExamComponent } from './pages/start-exam/start-exam.component'
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { ResultComponent } from './components/result/result.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { StartExamComponent } from './pages/start-exam/start-exam.component'
     ViewQuizQuestionComponent,
     AddQuestionComponent,
     ViewCategoryQuizComponent,
-    StartExamComponent
+    StartExamComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,8 @@ import { StartExamComponent } from './pages/start-exam/start-exam.component'
     BrowserAnimationsModule,
     HttpClientModule,
     NgToastModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({showForeground:true,}),
     ToastrModule.forRoot()
   ],
   providers: [],
