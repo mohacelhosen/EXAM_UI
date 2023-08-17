@@ -29,6 +29,10 @@ import { ViewCategoryQuizComponent } from './pages/view-category-quiz/view-categ
 import { StartExamComponent } from './pages/start-exam/start-exam.component'
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { ResultComponent } from './components/result/result.component';
+import { ChartModule } from 'angular-highcharts';
+
+
+
 
 @NgModule({
   declarations: [
@@ -52,7 +56,8 @@ import { ResultComponent } from './components/result/result.component';
     AddQuestionComponent,
     ViewCategoryQuizComponent,
     StartExamComponent,
-    ResultComponent
+    ResultComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -62,6 +67,7 @@ import { ResultComponent } from './components/result/result.component';
     HttpClientModule,
     NgToastModule,
     NgxUiLoaderModule,
+    ChartModule,
     NgxUiLoaderHttpModule.forRoot({showForeground:true,}),
     ToastrModule.forRoot()
   ],
