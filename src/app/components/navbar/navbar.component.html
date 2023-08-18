@@ -62,7 +62,7 @@
           <mat-list-item>
               <button mat-button routerLink="qa"><mat-icon>help</mat-icon>Help</button>
           </mat-list-item>
-          <mat-list-item *ngIf="userRole === 'ADMIN' || userRole === 'TEACHER'">
+          <mat-list-item *ngIf="userRole === 'ADMIN'">
             <button mat-button  [routerLink]="'users'">
               <mat-icon>analytics</mat-icon>Analytics
             </button>
