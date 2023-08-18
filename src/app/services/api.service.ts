@@ -34,8 +34,12 @@ export class ApiService {
   }
 
   deleteUser(userEmail: string): Observable<any> {
-    const url = `${this.baseUrl}/${userEmail}`;
-    return this.http.delete(url);
+    const token = localStorage.getItem('token');
+    console.log('Token:', token); // Check if the token is fetched correctly
+    
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const url = `http://localhost:8080/api/exam-portal/delete/${userEmail}`;
+    return this.http.delete(url, { headers });
   }
 
   getSingleUser(): Observable<any> {
