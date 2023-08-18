@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service'; // Replace with the actual path
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { PopupService } from 'src/app/services/popup.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
   constructor(
@@ -20,6 +20,11 @@ export class LoginComponent {
   ) {}
 
   ngOnInit(): void {
+    // Check if the user is already logged in
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['/navbar']); // Redirect to the dashboard
+    }
+
     this.loginForm = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
